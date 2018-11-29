@@ -57,6 +57,17 @@ public class RegisterFragment extends Fragment {
         String userString = userEditText.getText().toString().trim();
         String passwordString = passwordEditText.getText().toString().trim();
 
+        if (nameString.isEmpty() || userString.isEmpty() || passwordString.isEmpty()) {
+
+//            Have Space
+            MyAlert myAlert = new MyAlert(getActivity());
+            myAlert.normalDialog("Have Space", "Please Fill Every Blank");
+
+        } else {
+
+        }
+
+
 
     }
 
