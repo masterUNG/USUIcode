@@ -1,6 +1,7 @@
 package masterung.androidthai.in.th.usuicode;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -75,6 +76,10 @@ public class MainFragment extends Fragment {
                             JSONObject jsonObject = jsonArray.getJSONObject(0);
 
                             if (passwordString.equals(jsonObject.getString("Password"))) {
+
+                                Intent intent = new Intent(getActivity(), ServiceActivity.class);
+                                startActivity(intent);
+                                getActivity().finish();
 
                             } else {
                                 MyAlert myAlert = new MyAlert(getActivity());
