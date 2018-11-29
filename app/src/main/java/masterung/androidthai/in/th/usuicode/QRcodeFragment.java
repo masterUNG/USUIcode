@@ -52,7 +52,7 @@ public class QRcodeFragment extends Fragment implements ZXingScannerView.ResultH
 //            resultString ==> Value
             getActivity().getSupportFragmentManager()
                     .beginTransaction()
-                    .replace(R.id.contentServiceFragment, new ServiceFragment())
+                    .replace(R.id.contentServiceFragment, ServiceFragment.serviceInstance(resultString))
                     .commit();
 
         }   // if

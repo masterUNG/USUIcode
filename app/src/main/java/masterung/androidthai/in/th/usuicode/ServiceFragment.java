@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 
 /**
@@ -15,15 +16,32 @@ import android.widget.Button;
  */
 public class ServiceFragment extends Fragment {
 
+    private String resultString = "";
+
 
     public ServiceFragment() {
         // Required empty public constructor
     }
 
+    public static ServiceFragment serviceInstance(String resultString) {
+
+        ServiceFragment serviceFragment = new ServiceFragment();
+        Bundle bundle = new Bundle();
+        bundle.putString("Result", resultString);
+        serviceFragment.setArguments(bundle);
+
+        return serviceFragment;
+    }
+
+
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+        resultString = getArguments().getString("Result", "");
+        TextView textView = getView().findViewById(R.id.txtResult);
+        textView.setText(resultString);
 
 //        QR Controller
         QRController();
